@@ -9,7 +9,7 @@ var chan = (function() {
   };
 
 
-  var firebase = new Firebase("https://<your firebase url>.firebaseio.com/csp");
+  var firebase = new Firebase("https://timelinegame.firebaseio.com/csp");
 
 
   var __channelBuilder = function(channelName) {
