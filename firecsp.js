@@ -9,7 +9,7 @@ var chan = (function() {
   };
 
 
-  var firebase = new Firebase("https://timelinegame.firebaseio.com/csp");
+  var firebase = new Firebase("https://<your firebase url>.firebaseio.com/csp");
 
 
   var __channelBuilder = function(channelName) {
@@ -103,7 +103,6 @@ var chan = (function() {
       }, function(err, didWork) {
         if(err) return console.error(err);
         if(!didWork) return console.warning("Firebase didn't process any change");
-
         if(previousValue) callback(previousValue);
       });
     };

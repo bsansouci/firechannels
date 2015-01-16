@@ -3,13 +3,16 @@ var channel2 = chan("channel2");
 
 var App = React.createClass({
   getInitialState: function() {
-    return {text: "Hey"};
+    return {
+      text: "Hey",
+      count: 0
+    };
   },
 
   componentDidMount: function () {
     channel.getAll(function(s) {
       this.setState(s);
-      channel2.put(this.state.text + this.state.count);
+      channel2.put(this.state);
     }.bind(this));
   },
   render: function() {

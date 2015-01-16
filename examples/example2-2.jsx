@@ -5,14 +5,18 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       text: "Hey",
-      count: 0
+      count: 0,
+      subState: {
+        text: "Hey",
+        count: 0
+      }
     };
   },
   componentDidMount: function () {
     channel.put(this.state);
-    channel2.getAll(function(v) {
+    channel2.getAll(function(s) {
       this.setState({
-        text: v
+        subState: s
       });
     }.bind(this));
   },
@@ -26,7 +30,9 @@ var App = React.createClass({
   render: function() {
     return (
       <div id="main">
-        {this.state.text}
+        Local: {this.state.text + " " + this.state.count}
+        <br />
+        Confirmation: {this.state.subState.text + " " + this.state.subState.count}
         <br />
         <button onClick={this.onClick}>Click me!</button>
       </div>
